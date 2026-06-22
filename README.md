@@ -12,7 +12,7 @@ A simple, interactive website that lists well-known conspiracy theories from aro
 
 ## Live Demo
 
-[View on GitHub Pages](https://be-akverse.github.io/Conspiracy-Index/)
+[View on GitHub Pages](https://be-akverse.github.io/conspiracy-index/)
 
 ## Tech Stack
 
