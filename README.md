@@ -1,14 +1,17 @@
 # Conspiracy Index
 
-A simple, interactive website that lists well-known conspiracy theories from around the world. Each theory includes a description, claimed proof, counter-evidence, and source links. Users can also submit their own theories, which are saved locally and displayed on the page.
+A simple, interactive website that lists well knwon conspiracy theories from around the world that the users can edit. Each theory includes a description, claimed proof, counter-evidence, and source links. Users can also submit their own theories, which are saved locally and displayed on the page.
+
+## AI USAGE
+
+"AI was only used to build a small part of javascript code and to fix bugs present in the code to increase productivity and efficiency of work"
 
 ## Features
 
-- Browse 10 built-in example conspiracy theories that users can edit, (Moon Landing, 9/11, Area 51, JFK, COVID-19, Chemtrails, New World Order, Watergate, Bermuda Triangle, Tuskegee)
-- Collapsible proof and counter-statement sections for each theory
+- Users can browse 10 built-in example conspiracy theories that users can edit, (Moon Landing, 9/11, Area 51, JFK, COVID-19, Chemtrails, New World Order, Watergate, Bermuda Triangle, Tuskegee)
 - Submit your own theory via a modal form
 - User-submitted theories persist using localStorage
-- Clean, readable design with antique white color scheme
+- Clean, readable design
 
 ## Live Demo
 
@@ -22,11 +25,12 @@ A simple, interactive website that lists well-known conspiracy theories from aro
 
 ## How to Use
 
-1. Open the site in any modern browser
-2. Click "Add Your Theory" to submit a new conspiracy theory
-3. Fill in the title, description, proof points, counter-statement, and source URL
-4. Your theory will appear at the bottom of the list.
-5. Theories are saved to your browser's localStorage and will persist on refresh
+1. Open the site in any browser
+2. Read present theories
+3. Click Add Theory to write your own conspiracy theory on the website
+4. Fill in the title, description, proof points, counter-statement, and source URL while writing the theory
+5. Your theory will appear at the bottom of the list.
+6. Theories are saved to your browser's localStorage and will persist on refresh
 
 ## Sources
 
