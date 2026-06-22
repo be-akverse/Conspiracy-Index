@@ -1,6 +1,6 @@
 # Conspiracy Index
 
-A simple, interactive website that lists well knwon conspiracy theories from around the world that the users can edit. Each theory includes a description, claimed proof, counter-evidence, and source links. Users can also submit their own theories, which are saved locally and displayed on the page.
+A simple website that has a list of well knwon conspiracy theories from around the world that the users can edit. Each theory includes a description, claimed proof, counter-evidence, and source links. Users can also submit their own theories, which are displayed on the page.
 
 ## AI USAGE
 
@@ -8,29 +8,26 @@ A simple, interactive website that lists well knwon conspiracy theories from aro
 
 ## Features
 
-- Users can browse 10 built-in example conspiracy theories that users can edit, (Moon Landing, 9/11, Area 51, JFK, COVID-19, Chemtrails, New World Order, Watergate, Bermuda Triangle, Tuskegee)
-- Submit your own theory via a modal form
-- User-submitted theories persist using localStorage
-- Clean, readable design
+- Users can browse 10 built in (example) conspiracy theories that users can edit.
+- Submit your own theory via a form.
 
 ## Live Demo
 
-[View on GitHub Pages](https://be-akverse.github.io/conspiracy-index/)
+[Live Demo](https://be-akverse.github.io/conspiracy-index/)
 
 ## Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (vanilla, no frameworks)
+- JavaScript
 
 ## How to Use
 
 1. Open the site in any browser
-2. Read present theories
+2. Browse present theories
 3. Click Add Theory to write your own conspiracy theory on the website
 4. Fill in the title, description, proof points, counter-statement, and source URL while writing the theory
 5. Your theory will appear at the bottom of the list.
-6. Theories are saved to your browser's localStorage and will persist on refresh
 
 ## Sources
 
