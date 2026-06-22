@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conspiracy Index</title>
+    <style> 
+     
+    :root {
+        --bg-primary: #faebd7;
+        font: 1em sans-serif;
+
+    }
+    
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* Center all descriptions (paragraphs after h2) */
+         p {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+}
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .src {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details {
+            cursor: pointer;
+        }
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal {
+    background: #faebd7;
+    border: 2px solid #8b7355;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    color: #333;
+}
+.modal-header{
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #8b7355;
+}
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.modal-body {
+    padding: 1.5rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.form-gorup label span {
+    font-weight: 400;
+    color: #666;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.7rem;
+    background: #fff;
+    border: 1px solid #8b7355;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #555;
+}
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+.form-group small {
+    color: #666;
+    font-size: 0.8rem;
+}
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+.btn-secondary {
+    padding: 0.6rem 1.2rem;
+    background: #e0d4c1;
+    border: 1px solid #8b7355;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.btn-primary {
+    padding: 0.6rem 1.5rem;
+    background: #8b7355;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.add-btn {
+    padding: 0.7rem 1.2rem;
+    background: #8b7355;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 1rem;
+}
+.error-msg {
+    color: #c00;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+.success-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #8b7355;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3 ease;
+    z-index: 200;
+}
+.success-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <button class="add-btn" onclick="openSubmitModal()">+ Add Your Theory</button>
+
+    <h1>Conspiracy Index</h1>
+    <h3 class="subtitle">***The most well known and most important ones i could find***</h3>
+    <h2 class="src"><a href="https://en.wikipedia.org/wiki/List_of_conspiracy_theories">Sources</a> <br></h2>
+    <h4><b>Example Theories:</b></h4>
+    <h2>1. Moon Landing Hoax <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true">"Claims that the Apollo moon landings were staged by NASA and the US government, possibly in a film studio, to win the Space Race against the Soviet Union."</p>
+    <details><summary><h3>Proof <small>(click to view) </small><br></h3></summary>
+    <ul contenteditable="true">
+        <li>No stars visible in lunar photographs</li>
+        <li>The flag appears to wave in the windless lunar vacuum</li>
+        <li>Shadows appear to intersect at different angles, suggesting multiple light sources</li>
+        <li>The Van Allen radiation belt would have been lethal to astronauts</li>
+        <li>Crosshairs in photos appear behind objects</li>
+    </ul>
+</details>
+    <details> <summary><h3>Counter Statement <small> (click to view)</small><br></h3></summary>
+    <p contenteditable="true">Multiple independent tracking stations worldwide monitored the missions. The Soviet Union, America's Cold War rival, acknowledged the landings. Lunar rocks brought back have been verified by scientists globally. The 'waving' flag was due to the horizontal rod in the fabric; shadows behave strangely in photography due to terrain and wide-angle lenses. Astronauts passed through the Van Allen belts quickly, minimizing exposure.</p></details>
+    <br>
+    <p>
+    <a href="https://en.wikipedia.org/wiki/List_of_conspiracy_theories">Source</a> <br></p>
+    <h2>2. 9/11 (An Inside Job?) <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true">"Theories suggesting that the September 11 attacks were orchestrated or allowed by elements within the US government as a pretext for war and expanded surveillance."</p>
+    <details><summary><h3>Proof <small> (click to view)</small> <br></h3></summary>
+    <ul contenteditable="true">
+        <li>Building 7 collapsed without being hit by a plane</li>
+        <li>The Pentagon was hit in a section that was under renovation</li>
+        <li>Jet fuel doesn't burn hot enough to melt steel beams</li>
+        <li>Foreknowledge warnings were allegedly ignored</li>
+        <li>The rapid collapse resembled controlled demolition</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small>(click to view)</small><br></h3></summary>
+    <p contenteditable="true">NIST and multiple engineering studies concluded that Building 7 collapsed due to uncontrolled fires ignited by debris from the Twin Towers. Steel doesn't need to melt to lose structural integrity; it weakens significantly at high temperatures. The 9/11 Commission Report and independent investigations found no evidence of controlled demolition. The 'stand down' theory has been thoroughly debunked by air traffic control records.</p></details>
+    <br>
+    <p>
+    <a href="https://www.911memorial.org/learn/past-public-programs/911-golden-age-conspiracy-theories">Source</a> <br></p>
+    <h2>3. Area 51 <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true">"Claims that Area 51 is a secret facility where the US government studies extraterrestrial spacecraft and conducts experiments on alien beings recovered from crashes."</p>
+    <details><summary><h3>Proof <small>(click to view)</small></h3></summary>
+    <ul contenteditable="true">
+        <li>Bob Lazar claimed to have worked on alien spacecraft at S-4</li>
+        <li>The 1947 Roswell incident involved a crashed 'flying disc</li>
+        <li>Government secrecy around the base is unusually high</li>
+        <li>UFO sightings are frequently reported near the facility</li>
+        <li>Whistleblowers have allegedly come forward with testimony</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small>(click to view) </small><br></h3></summary>
+    <p contenteditable="true">Area 51 is a classified military testing facility for experimental aircraft (like the U-2, SR-71, and F-117). The Roswell incident was officially a weather balloon (Project Mogul). While UFOs (now UAPs) are real in the sense of unidentified objects, there is no verified physical evidence of extraterrestrial technology. Most 'whistleblower' claims lack corroboration.</p></details>
+    <br>
+    <p>
+    <a href="https://en.wikipedia.org/wiki/Area_51">Source</a> <br></p>
+    <h2>4. JFK Assasination <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true">"Theories that Lee Harvey Oswald did not act alone, and that elements of the CIA, Mafia, or military-industrial complex orchestrated or covered up the assassination of President Kennedy."</p>
+    <details><summary><h3>Proof <small> (click to view) </small><br></h3></summary>
+    <ul contenteditable="true">
+        <li>The 'magic bullet' theory seems physically implausible</li>
+        <li>Multiple witnesses reported shots from the 'grassy knoll</li>
+        <li>Oswald was killed before he could stand trial</li>
+        <li>The Warren Commission findings were disputed by the House Select Committee</li>
+        <li>CIA files related to the assassination remain classified</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small> (click to view)</small> <br></h3></summary>
+    <p contenteditable="true">The Warren Commission concluded Oswald acted alone, but the 1979 House Select Committee on Assassinations found a 'probable conspiracy' based on acoustic evidence (later disputed). The 'magic bullet' trajectory has been recreated and found plausible by ballistics experts. While many documents remain classified, no definitive evidence has proven a second gunman or specific conspiracy. The full story may never be known.</p></details>
+    <br>
+    <p>
+    <a href="https://www.britannica.com/event/assassination-of-John-F-Kennedy/Conspiracy-theories">Source</a> <br></p>
+    <h2>5.Covid-19 <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true"> "The hypothesis that SARS-CoV-2 accidentally escaped from the Wuhan Institute of Virology rather than originating naturally from a zoonotic spillover at a wet market."</p>
+    <details><summary><h3>Proof <small>(click to view)</small> <br></h3></summary>
+    <ul contenteditable="true">
+        <li>Wuhan is home to a major coronavirus research lab (WIV)</li>
+        <li>The virus has unusual features that some scientists flagged</li>
+        <li>Early cases were clustered near the lab, not the market</li>
+        <li>China has been non-transparent about early data</li>
+        <li>Lab accidents have happened before with other pathogens</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small> (click to view)</small><br></h3></summary>
+    <p contenteditable="true">The scientific consensus initially favored natural origin, but the lab leak hypothesis gained credibility after being dismissed too quickly. No 'smoking gun' evidence exists for either theory. The virus's features are consistent with natural evolution. The FBI and US Energy Department have assessed the lab leak as plausible but with 'low confidence.' The WHO investigation called for further study. The truth remains undetermined.</p></details>
+    <br>
+     <p>
+    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7995222/">Source</a>Source</a> <br></p>
+    <h2>6. ChemTrails <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true">"The theory that the condensation trails left by aircraft are actually chemical or biological agents deliberately sprayed for sinister purposes like weather control, population control, or mind control."</p>
+    <details><summary><h3>Proof <small>(click to view)</small> <br></h3></summary>
+    <ul contenteditable="true">
+        <li>Trails persist longer than they used to</li>
+        <li>Some contain unusual metallic particles (aluminum, barium)</li>
+        <li>Grid patterns suggest systematic spraying</li>
+        <li>Government weather modification programs exist</li>
+        <li>Whistleblower pilots have allegedly confessed</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small>(click to view)</small><br></h3></summary>
+    <p contenteditable="true">Contrails are simply water vapor condensation from jet engines, and their persistence depends on atmospheric humidity. The 'unusual particles' found are consistent with normal environmental levels. No credible evidence of systematic spraying has been presented. Commercial pilots and airlines would need to be complicit on a massive scale. Weather modification (cloud seeding) is real but localized and disclosed.</p></details>
+    <br>
+    <p>
+    <a href="https://en.wikipedia.org/wiki/Chemtrail_conspiracy_theory">Source</a> <br></p>
+    <h2>7. New World Order <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true"> "The theory that a secretive power elite with a globalist agenda is conspiring to eventually rule the world through an authoritarian world government."</p>
+    <details><summary><h3>Proof <small>(click to view)</small> <br></h3></summary>
+    <ul contenteditable="true">
+        <li>Bilderberg Group meets secretly with world leaders</li>
+        <li>The UN, WHO, and WEF push for global cooperation</li>
+        <li>The phrase 'new world order' has been used by politicians</li>
+        <li>Wealth inequality is increasing globally</li>
+        <li>Digital ID and CBDC systems could enable mass surveillance</li>
+    </ul>
+    </details>
+    <detials><summary><h3>Counter Statement <small>(click to view)</small> <br></h3></summary>
+    <p contenteditable="true">While international organizations do exist and global cooperation is real, there is no evidence of a single coordinated plot for authoritarian world government. The Bilderberg Group is a private conference, not a decision-making body. Many 'globalist' policies are transparent and democratic. However, concerns about surveillance capitalism and corporate influence are legitimate and documented.</p></details>
+    <br>
+    <p>
+    <a href="https://en.wikipedia.org/wiki/New_World_Order_conspiracy_theory">Source</a> <br></p>
+    <h2>8. Water Gate Scandal <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true"> "A real political conspiracy where Nixon administration officials bugged the Democratic National Committee headquarters and attempted to cover it up."</p>
+    <details><summary><h3>Proof <smal> (click to view)</small><br></h3></summary>
+    <ul contenteditable="true">
+        <li>Five men were caught breaking into the DNC office in 1972</li>
+        <li>The 'smoking gun' tape proved Nixon's involvement in the cover-up</li>
+        <li>Multiple officials were convicted and imprisoned</li>
+        <li>Nixon resigned to avoid impeachment</li>
+        <li>Journalists Woodward and Bernstein exposed the story</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small>(click to view)</small><br></h3></summary>
+    <p contenteditable="true">This is the gold standard of confirmed conspiracies. It led to Nixon's resignation, 69 indictments, and 48 convictions. It proved that government conspiracies can be real and can be exposed through investigative journalism, whistleblowers, and legal processes. It also shows why conspiracy theories sometimes gain traction—because this one was true.</p></details>
+    <br>
+    <p>
+    <a href="https://en.wikipedia.org/wiki/Watergate_scandal">Source</a> <br></p>
+    <h2>9.The Bermuda Triangle <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true">"The idea that a region in the North Atlantic Ocean is cursed or contains supernatural forces that cause ships and aircraft to mysteriously disappear."</p>
+    <details><summary><h3>Proof <small> (click to view)</small><br></h3></summary>
+    <ul contenteditable="true">
+        <li>Flight 19 (1945) — five Navy bombers vanished simultaneously</li>
+        <li>USS Cyclops disappeared without a trace in 1918</li>
+        <li>Compasses allegedly malfunction in the area</li>
+        <li>Some claim methane hydrate bubbles cause ships to sink</li>
+        <li>Ancient alien theories suggest underwater bases</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small> (click to view)</small> <br></h3></summary>
+    <p contenteditable="true">The Bermuda Triangle is no more dangerous than other heavily traveled ocean regions. Insurance companies don't charge higher rates for crossing it. Flight 19 likely got lost and ran out of fuel; the rescue plane sent after them also exploded. The number of disappearances is statistically proportional to traffic volume. Weather patterns and human error explain most incidents.</p></details>
+    <br>
+    <a href="https://en.wikipedia.org/wiki/Bermuda_Triangle">Source</a> <br></p>
+    <h2>10. Tuskegee Syphilis Experiment <small><i>(Click the text to edit)</i></small></h2>
+    <p contenteditable="true"> "A real, confirmed study (1932-1972) where the US Public Health Service deliberately withheld treatment from African American men with syphilis to study the disease's progression."</p>
+    <details><summary><h3>Proof <small>(click to view)</small> <br></h3></summary>
+    <ul contenteditable="true">
+        <li>Officialy confirmed by the US government and CD</li>
+        <li>600 African American men were involved, 399 with syphilis</li>
+        <li>Participants were told they were reciving free healthcare</li>
+        <li>Penicillin was witheld even after it became standard treatment</li>
+        <li>Led to major reforms in medical ethics and informed consent</li>
+    </ul>
+    </details>
+    <details><summary><h3>Counter Statement <small>(click to view)</small><br></h3></summary>
+    <p contenteditable="true">This is a documented historical fact, not a theory. It was exposed in 1972 by the Associated Press. The government paid $10 million in out-of-court settlements. It led to the National Research Act and institutional review boards. It serves as a real example of why medical conspiracy theories can gain traction—because real conspiracies have happened.</p></details>
+    <br>
+    <p>
+    <a href="https://en.wikipedia.org/wiki/Tuskegee_Syphilis_Study">Source</a> <br></p>
+
+    <div id="user-theories-container"></div>
+
+    <div class="modal-overlay" id="submit-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Submit Your Theory</h2>
+                <button class="modal-close" onclick="closeSubmitModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="submit-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Title *</label>
+                        <input type="text" id="sub-title" placeholder="e.g., The Simulation Hypothesis" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description * <span>(What is the theory about?)</span></label>
+                        <textarea id="sub-desc" placeholder="Explain the conspiracy theory in a few sentences..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Proof * <span>(Separate points with line breaks)</span></label>
+                        <textarea id="sub-proof" placeholder="List the main claims and evidence..." required></textarea>
+                        <small style="color: #a0a0b0; font-size: 0.8rem;">Each line becomes a bullet point.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Counter Statement <span>(Optional)</span></label>
+                        <textarea id="sub-counter" placeholder="What do skeptics say?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Source URL <span>(Optional)</span></label>
+                        <input type="url" id="sub-source" placeholder="https://example.com/article">
+                    </div>
+                    <div class="error-msg" id="form-error"></div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeSubmitModal()">Cancel</button>
+                        <button type="button" class="btn-primary" onclick="submitTheory()">Add Theory</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="success-toast" id="toast">Theory added successfully!</div>
+
+    <script>
+let userTheories = [];
+
+function loadUserTheories() {
+    try {
+        const stored = localStorage.getItem('conspiracy_user_theories');
+        if (stored) userTheories = JSON.parse(stored);
+    } catch (e) {
+        userTheories = [];
+    }
+}
+
+function saveUserTheories() {
+    try {
+        localStorage.setItem('conspiracy_user_theories', JSON.stringify(userTheories));
+    } catch (e) {}
+}
+
+function openSubmitModal() {
+    const modal = document.getElementById('submit-modal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    const err = document.getElementById('form-error');
+    if (err) err.style.display = 'none';
+}
+
+function closeSubmitModal() {
+    const modal = document.getElementById('submit-modal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+    const form = document.getElementById('submit-form');
+    if (form) form.reset();
+}
+
+function renderUserTheories() {
+    let container = document.getElementById('user-theories-container');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    userTheories.forEach((theory, index) => {
+        const theoryNum = index + 11;
+        const proofList = theory.proof.map(p => `<li>${p}</li>`).join('');
+        
+        const theoryHTML = `
+            <h2>${theoryNum}. ${theory.title}</h2>
+            <p>"${theory.description}"</p>
+            
+            <details>
+                <summary><h3>Proof <small>(click to view)</small></h3></summary>
+                <ul>
+                    ${proofList}
+                </ul>
+            </details>
+            
+            <details>
+                <summary><h3>Counter Statement <small>(click to view)</small></h3></summary>
+                <p>${theory.counter}</p>
+            </details>
+            
+            <br>
+            ${theory.source ? `<p><a href="${theory.source}">Source</a></p>` : ''}
+            <br>
+        `;
+        
+        container.innerHTML += theoryHTML;
+    });
+}
+
+function submitTheory() {
+    const title = document.getElementById('sub-title').value.trim();
+    const desc = document.getElementById('sub-desc').value.trim();
+    const proofRaw = document.getElementById('sub-proof').value.trim();
+    const counter = document.getElementById('sub-counter').value.trim();
+    const source = document.getElementById('sub-source').value.trim();
+    const errorMsg = document.getElementById('form-error');
+
+    if (!title || !desc || !proofRaw) {
+        errorMsg.textContent = 'Please fill all required fields.';
+        errorMsg.style.display = 'block';
+        return;
+    }
+
+    const proof = proofRaw.split('\n').map(p => p.trim()).filter(p => p);
+
+    const newTheory = {
+        id: Date.now(),
+        title: title,
+        description: desc,
+        proof: proof,
+        counter: counter || "No counter-arguments provided.",
+        source: source,
+        isUserSubmitted: true
+    };
+
+    userTheories.push(newTheory);
+    saveUserTheories();
+
+    renderUserTheories();
+    
+    closeSubmitModal();
+    showToast();
+}
+
+function showToast() {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadUserTheories();
+    renderUserTheories();
+
+    const modal = document.getElementById('submit-modal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeSubmitModal();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSubmitModal();
+    });
+});
+    </script>
+</body>
+<footer>
+    <dialog id="info-dialog">
+        <h2>About This Site</h2>
+        <p>This site lists and accepts conspiracy theories from users for educational purposes!</p>
+        <form method="dialog"><button>Close</button>
+        </form>
+    </dialog>
+    <button onclick="document.getElementById('info-dialog').showModal()" style="align-items: center; justify-content: center;">About</button>
+</footer>
+</html>
